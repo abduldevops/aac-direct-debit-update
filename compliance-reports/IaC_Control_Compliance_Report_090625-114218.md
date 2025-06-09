@@ -1,0 +1,26 @@
+# IaC - Control Policy Deviation Report
+
+**Analysis Date**: 2025-06-09 11:42:16
+
+## 1. IaC Module and Control Policy Mapping
+
+| Iac Module     | Control ID | Implementation Evidence |
+|----------------|------------|-------------------------|
+| ecs-fargate-module | INFRA-002-control | The aws_lb_listener resource is configured to use HTTPS protocol on port 443, ensuring secure communication. |
+| observability-module | INFRA-005-control | The module includes resources for CloudWatch log group and metric alarm, which captures logs and custom metrics for observability. |
+| rds-secrets-module | INFRA-003-control | The aws_db_instance resource has storage_encrypted set to true, ensuring audit logs are stored in encrypted RDS. |
+|  | INFRA-004-control | The aws_secretsmanager_secret resource is used to store DB credentials, preventing plaintext secrets in configs. |
+|  | SEC-003-control | The db_password variable is marked as sensitive and stored in AWS Secrets Manager, ensuring secrets are not hardcoded. |
+| security-module | INFRA-006-control | The Terraform code includes security group configurations that allow 0.0.0.0/0, which is a common tfsec check for HIGH/Critical issues. This indicates awareness of potential tfsec checks, although the code itself does not explicitly pass tfsec checks. |
+
+## 2. Control Policy Deviation Analysis
+
+| Iac Module | Control ID | Compliance Status         | Deviation | Suggestion |
+|------------|------------|---------------------------|-----------|------------|
+| ecs-fargate-module | INFRA-002-control | Complaint✅ | No deviations found | N/A |
+| observability-module | INFRA-005-control | Complaint✅ | No deviations found | N/A |
+| rds-secrets-module | INFRA-003-control | Complaint✅ | No deviations found | N/A |
+| rds-secrets-module | INFRA-004-control | Complaint✅ | No deviations found | N/A |
+| rds-secrets-module | SEC-003-control | Complaint✅ | No deviations found | N/A |
+| security-module | INFRA-006-control | Non-Compliant❌ | Security group allows 0.0.0.0/0 for egress traffic. | Restrict egress traffic to specific IP ranges instead of 0.0.0.0/0. |
+|  |  |  | Database encryption not enabled. | Enable encryption for RDS instances. |
