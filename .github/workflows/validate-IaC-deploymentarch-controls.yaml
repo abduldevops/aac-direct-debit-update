@@ -1,5 +1,9 @@
 name: Validate IaC and Mark PR Ready
-
+permissions:
+  contents: write
+  actions: write
+  id-token: write
+  
 on:
   pull_request:
     types:
