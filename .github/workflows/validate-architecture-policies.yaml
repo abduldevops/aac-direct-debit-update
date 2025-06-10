@@ -1,4 +1,9 @@
 name: Validate architecture aligned to Policies
+permissions:
+  contents: write
+  actions: write
+  id-token: write
+
 on:
   pull_request:
     types:
