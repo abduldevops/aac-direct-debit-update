@@ -24,7 +24,7 @@ jobs:
           echo "Skipping — either not from 'develop' or not a draft PR"
           exit 0
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Check for ADR files
         run: |
           if ls adr/*.md 1> /dev/null 2>&1; then
@@ -43,7 +43,7 @@ jobs:
           echo "Skipping — either not from 'develop' or not a draft PR"
           exit 0
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install yq
         run: >
           wget
@@ -83,7 +83,7 @@ jobs:
           echo "Skipping — either not from 'develop' or not a draft PR"
           exit 0
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Ensure full repo history and all branches are available
           
