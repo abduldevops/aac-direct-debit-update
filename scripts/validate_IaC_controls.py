@@ -8,9 +8,12 @@ import datetime
 import json
 import re
 from typing import Dict, List, Tuple, Any, Set
-from langchain.prompts import PromptTemplate
+# from langchain.prompts import PromptTemplate
+# from langchain_openai import AzureChatOpenAI
+# from langchain.schema import HumanMessage, SystemMessage
+from langchain_core.prompts import PromptTemplate
 from langchain_openai import AzureChatOpenAI
-from langchain.schema import HumanMessage, SystemMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 from textwrap import dedent
 import stat
 import re
