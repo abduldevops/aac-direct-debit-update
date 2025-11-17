@@ -5,9 +5,12 @@ import tempfile
 import sys
 from pathlib import Path
 from dotenv import load_dotenv
-from langchain.prompts import PromptTemplate
+# from langchain.prompts import PromptTemplate
+# from langchain_openai import AzureChatOpenAI
+# from langchain.schema import HumanMessage, SystemMessage
+from langchain_core.prompts import PromptTemplate
 from langchain_openai import AzureChatOpenAI
-from langchain.schema import HumanMessage, SystemMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 import datetime
 import json
 import time
