@@ -15,7 +15,15 @@ from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 from textwrap import dedent
 
+import logging
 
+# Configure the logging level and format
+logging.basicConfig(
+    level=logging.DEBUG,  # Set logging level to DEBUG for detailed output
+    format="%(asctime)s - %(levelname)s - %(message)s",  # Include timestamps and severity level
+)
+
+logging.debug("Script started in debug mode")
 
 AZURE_OPENAI_KEY="d006a38de36a4421bb75c0ccf44ca5ec"
 AZURE_OPENAI_ENDPOINT="https://gpt-4-main.openai.azure.com/"
