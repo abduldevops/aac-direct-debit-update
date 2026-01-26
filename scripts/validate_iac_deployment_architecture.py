@@ -20,7 +20,7 @@ from textwrap import dedent
 AZURE_OPENAI_KEY="d006a38de36a4421bb75c0ccf44ca5ec"
 AZURE_OPENAI_ENDPOINT="https://gpt-4-main.openai.azure.com/"
 DEPLOYMENT_NAME="gpt-4o"
-OPENAI_API_VERSION="2023-09-01-preview"
+OPENAI_API_VERSION="2025-06-01"
 OPENAI_API_TYPE="azure"
 
 # Hardcoded output directory for the report
