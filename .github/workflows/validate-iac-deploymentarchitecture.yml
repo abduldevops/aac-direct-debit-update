@@ -35,6 +35,11 @@ jobs:
         run: chmod +x scripts/validate_iac_deployment_architecture.py
 
       - name: Run validation script
+        env:
+          AZURE_OPENAI_KEY: ${{ secrets.AZURE_OPENAI_KEY }}
+          AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+          AZURE_OPENAI_DEPLOYMENT: ${{ secrets.AZURE_OPENAI_DEPLOYMENT }}
+          OPENAI_API_VERSION: ${{ secrets.OPENAI_API_VERSION }}
         run: python ./scripts/validate_iac_deployment_architecture.py
 
       - name: Debug – List report files
