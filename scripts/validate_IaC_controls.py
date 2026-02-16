@@ -18,16 +18,22 @@ from textwrap import dedent
 import stat
 import re
 
-# Azure OpenAI Configuration
-AZURE_OPENAI_KEY = "d006a38de36a4421bb75c0ccf44ca5ec" # Replace with your actual key or use environment variables
-AZURE_OPENAI_ENDPOINT = "https://gpt-4-main.openai.azure.com/" # Replace with your actual endpoint
-DEPLOYMENT_NAME = "gpt-4o"
-OPENAI_API_VERSION = "2023-09-01-preview"
+# Load environment variables from .env file (for local development)
+load_dotenv()
+
+# Azure OpenAI Configuration - Read from environment variables
+AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY")
+AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT", "https://openaikey-804417.openai.azure.com/")
+DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
+OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION", "2023-09-01-preview")
 OPENAI_API_TYPE = "azure"
 
-# Hardcoded output directory for the report
-#REPORT_OUTPUT_DIRECTORY = r"C:\Users\TAMANNAJANGID\Desktop\Natwest POC\Task-4\result" # Ensure this path is correct
-
+# Validate required environment variables
+if not AZURE_OPENAI_KEY:
+    raise ValueError(
+        "AZURE_OPENAI_KEY environment variable is not set. "
+        "Please set it in your .env file or system environment."
+    )
 # updated now
 #REPORT_OUTPUT_DIRECTORY = os.path.join("aac-direct-debit-update", "compliance-reports")
 
