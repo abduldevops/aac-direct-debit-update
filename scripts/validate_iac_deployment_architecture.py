@@ -25,14 +25,19 @@ logging.basicConfig(
 
 logging.debug("Script started in debug mode")
 
-AZURE_OPENAI_KEY="d006a38de36a4421bb75c0ccf44ca5ec"
-AZURE_OPENAI_ENDPOINT="https://gpt-4-main.openai.azure.com/"
-DEPLOYMENT_NAME="gpt-4o"
-OPENAI_API_VERSION="2024-10-21"
-OPENAI_API_TYPE="azure"
+# Azure OpenAI Configuration - Read from environment variables
+AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY")
+AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT", "https://openaikey-804417.openai.azure.com/")
+DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
+OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION", "2024-10-21")
+OPENAI_API_TYPE = "azure"
 
-# Hardcoded output directory for the report
-#REPORT_OUTPUT_DIRECTORY = r"C:\Users\TAMANNAJANGID\Desktop\Natwest POC\Task-2/report3"
+# Validate required environment variables
+if not AZURE_OPENAI_KEY:
+    raise ValueError(
+        "AZURE_OPENAI_KEY environment variable is not set. "
+        "Please set it in your .env file or system environment."
+    )
 
 # Define the report output directory
 REPORT_OUTPUT_DIRECTORY = os.path.join(
