@@ -15,8 +15,13 @@ import datetime
 import json
 import time
 
-# Load environment variables from .env
-load_dotenv()
+import logging
+
+# Configure the logging level and format
+logging.basicConfig(
+    level=logging.DEBUG,  # Set logging level to DEBUG for detailed output
+    format="%(asctime)s - %(levelname)s - %(message)s",  # Include timestamps and severity level
+)
 
 # Azure OpenAI Configuration - Read from environment variables
 AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY")
