@@ -18,8 +18,7 @@ from textwrap import dedent
 import stat
 import re
 import 
-# Load environment variables from .env file (for local development)
-# load_dotenv()
+
 
 # Azure OpenAI Configuration - Read from environment variables
 AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY")
@@ -35,6 +34,12 @@ if not AZURE_OPENAI_KEY:
         "Please set it in your .env file or system environment."
     )
 # updated now
+print("✓ AZURE_OPENAI_KEY is set" if os.getenv("AZURE_OPENAI_KEY") else "✗ AZURE_OPENAI_KEY is NOT set")
+print(f"✓ Endpoint: {os.getenv('AZURE_OPENAI_ENDPOINT')}")
+print(f"✓ Deployment: {os.getenv('AZURE_OPENAI_DEPLOYMENT')}")
+print(f"✓ API Version: {os.getenv('OPENAI_API_VERSION')}")
+
+
 #REPORT_OUTPUT_DIRECTORY = os.path.join("aac-direct-debit-update", "compliance-reports")
 
 # Define the report output directory
