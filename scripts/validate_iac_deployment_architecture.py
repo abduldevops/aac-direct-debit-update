@@ -29,7 +29,7 @@ logging.debug("Script started in debug mode")
 AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY")
 AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT", "https://openaikey-804417.openai.azure.com/")
 DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
-OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION", "2024-10-21")
+OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION", "2024-11-20")
 OPENAI_API_TYPE = "azure"
 
 # Validate required environment variables
