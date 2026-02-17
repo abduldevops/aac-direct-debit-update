@@ -39,6 +39,12 @@ if not AZURE_OPENAI_KEY:
         "Please set it in your .env file or system environment."
     )
 
+print("✓ AZURE_OPENAI_KEY is set" if os.getenv("AZURE_OPENAI_KEY") else "✗ AZURE_OPENAI_KEY is NOT set")
+print(f"✓ Endpoint: {os.getenv('AZURE_OPENAI_ENDPOINT')}")
+print(f"✓ Deployment: {os.getenv('AZURE_OPENAI_DEPLOYMENT')}")
+print(f"✓ API Version: {os.getenv('OPENAI_API_VERSION')}")
+
+
 # Define the report output directory
 REPORT_OUTPUT_DIRECTORY = os.path.join(
     os.path.dirname(os.path.dirname(__file__)), "compliance-reports"
