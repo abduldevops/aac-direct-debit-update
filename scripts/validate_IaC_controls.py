@@ -17,9 +17,9 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from textwrap import dedent
 import stat
 import re
-
+import 
 # Load environment variables from .env file (for local development)
-load_dotenv()
+# load_dotenv()
 
 # Azure OpenAI Configuration - Read from environment variables
 AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY")
